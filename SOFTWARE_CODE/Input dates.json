@@ -1,0 +1,516 @@
+[
+    {
+        "id": "7681f5b17e1c5986",
+        "type": "tab",
+        "label": "Input dates",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "434630f6fe6c89d6",
+        "type": "serial in",
+        "z": "7681f5b17e1c5986",
+        "name": "Serial Electric meter",
+        "serial": "c26cf7ce260dadf7",
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "4d7690e563134d6b"
+            ]
+        ]
+    },
+    {
+        "id": "e4f009176d4324bf",
+        "type": "ewelink-devices",
+        "z": "7681f5b17e1c5986",
+        "name": "Electric meter eWelinik",
+        "auth": "31bdd3dae48e663b",
+        "x": 800,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb1c8feb92abfeec",
+        "type": "ewelink-power-state-write",
+        "z": "7681f5b17e1c5986",
+        "name": "Smart switch",
+        "deviceId": "1000b048f3",
+        "channel": 1,
+        "auth": "31bdd3dae48e663b",
+        "x": 1230,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba730afa25909509",
+        "type": "ui_button",
+        "z": "7681f5b17e1c5986",
+        "name": "",
+        "group": "064d7f5cab9396ec",
+        "order": 5,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Smart switch",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "power",
+        "payload": "toggle",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1010,
+        "y": 560,
+        "wires": [
+            [
+                "fb1c8feb92abfeec"
+            ]
+        ]
+    },
+    {
+        "id": "3f19e2878954fe02",
+        "type": "mqtt in",
+        "z": "7681f5b17e1c5986",
+        "d": true,
+        "name": "MQTT Electric Meter",
+        "topic": "Electric_Meter/All",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "7984c1862b1f9ad5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "7ea7584ee5863c60"
+            ]
+        ]
+    },
+    {
+        "id": "3c76a6553fe545d0",
+        "type": "link out",
+        "z": "7681f5b17e1c5986",
+        "name": "Data transfer",
+        "mode": "link",
+        "links": [
+            "9b46cd02e4379f22",
+            "b629848208dc0cc7"
+        ],
+        "x": 1305,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "25525645735b5fd4",
+        "type": "ui_button",
+        "z": "7681f5b17e1c5986",
+        "name": "",
+        "group": "652f1a793280a7af",
+        "order": 3,
+        "width": 8,
+        "height": 1,
+        "passthru": false,
+        "label": "Serial",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "usb",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 600,
+        "wires": [
+            [
+                "2ca23cd40f744eb0"
+            ]
+        ]
+    },
+    {
+        "id": "5a8ca04929eebc53",
+        "type": "ui_button",
+        "z": "7681f5b17e1c5986",
+        "name": "",
+        "group": "652f1a793280a7af",
+        "order": 4,
+        "width": 8,
+        "height": 1,
+        "passthru": false,
+        "label": "MQTT",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "wifi_tethering",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 560,
+        "wires": [
+            [
+                "2ca23cd40f744eb0"
+            ]
+        ]
+    },
+    {
+        "id": "5cfb8f9b3fb93c80",
+        "type": "inject",
+        "z": "7681f5b17e1c5986",
+        "name": "Inicio",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 190,
+        "y": 520,
+        "wires": [
+            [
+                "2ca23cd40f744eb0"
+            ]
+        ]
+    },
+    {
+        "id": "1161e3bb268d52a4",
+        "type": "delay",
+        "z": "7681f5b17e1c5986",
+        "name": "Delay 1[s]",
+        "pauseType": "queue",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 560,
+        "wires": [
+            [
+                "2ca23cd40f744eb0"
+            ]
+        ]
+    },
+    {
+        "id": "4d7690e563134d6b",
+        "type": "join",
+        "z": "7681f5b17e1c5986",
+        "name": "Join: Serial",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": ";",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 630,
+        "y": 380,
+        "wires": [
+            [
+                "1bf5af7d999c8a12"
+            ]
+        ]
+    },
+    {
+        "id": "1bf5af7d999c8a12",
+        "type": "function",
+        "z": "7681f5b17e1c5986",
+        "name": "Function: Serial",
+        "func": "//Saving value\nconst dato = msg.payload;\n\n//Development\nif (dato[0] == 1 && dato[1] != 1) { msg.payload = dato[1];}\nelse if (dato[0] != 1 && dato[1] == 1) { msg.payload = dato[0];}\nelse {msg = null;}\nif (dato[0] == 0 || dato[1] == 0) {msg = null;}\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 380,
+        "wires": [
+            [
+                "44694f90fd9149f7"
+            ]
+        ]
+    },
+    {
+        "id": "4724e1d99fce1f7c",
+        "type": "ui_text",
+        "z": "7681f5b17e1c5986",
+        "group": "652f1a793280a7af",
+        "order": 5,
+        "width": 8,
+        "height": 2,
+        "name": "",
+        "label": "Type of communication:",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 950,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "34be47607ce915b5",
+        "type": "change",
+        "z": "7681f5b17e1c5986",
+        "name": "Type of communication",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "num",
+                "to": "Serial",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "num",
+                "to": "MQTT",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 320,
+        "wires": [
+            [
+                "4724e1d99fce1f7c"
+            ]
+        ]
+    },
+    {
+        "id": "7ea7584ee5863c60",
+        "type": "join",
+        "z": "7681f5b17e1c5986",
+        "name": "Join: MQTT",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": ";",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 630,
+        "y": 460,
+        "wires": [
+            [
+                "ddf354eabf7c3552"
+            ]
+        ]
+    },
+    {
+        "id": "ddf354eabf7c3552",
+        "type": "function",
+        "z": "7681f5b17e1c5986",
+        "name": "Function: MQTT",
+        "func": "//Saving value\nconst dato = msg.payload;\n\n////Development\nif (dato[0] == 0 && dato[1] != 0) { msg.payload = dato[1];}\nelse if (dato[0] != 0 && dato[1] == 0) { msg.payload = dato[0];}\nelse {msg = null;}\nif (dato[0] == 1 || dato[1] == 1) {msg = null;}\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 460,
+        "wires": [
+            [
+                "b30c7cee9d2617a3"
+            ]
+        ]
+    },
+    {
+        "id": "44694f90fd9149f7",
+        "type": "json",
+        "z": "7681f5b17e1c5986",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 990,
+        "y": 380,
+        "wires": [
+            [
+                "b30c7cee9d2617a3"
+            ]
+        ]
+    },
+    {
+        "id": "2ca23cd40f744eb0",
+        "type": "function",
+        "z": "7681f5b17e1c5986",
+        "name": "Loop",
+        "func": "//Saving value\nconst dato = msg.payload;\n\n//Development\nmsg.payload = dato;\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 560,
+        "wires": [
+            [
+                "1161e3bb268d52a4",
+                "34be47607ce915b5",
+                "4d7690e563134d6b",
+                "7ea7584ee5863c60"
+            ]
+        ]
+    },
+    {
+        "id": "b30c7cee9d2617a3",
+        "type": "delay",
+        "z": "7681f5b17e1c5986",
+        "name": "Delay message",
+        "pauseType": "rate",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1160,
+        "y": 460,
+        "wires": [
+            [
+                "3c76a6553fe545d0"
+            ]
+        ]
+    },
+    {
+        "id": "c26cf7ce260dadf7",
+        "type": "serial-port",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "31bdd3dae48e663b",
+        "type": "ewelink-credentials"
+    },
+    {
+        "id": "064d7f5cab9396ec",
+        "type": "ui_group",
+        "name": "Cyber-physical system",
+        "tab": "7fe6dd67680e9f21",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": true
+    },
+    {
+        "id": "7984c1862b1f9ad5",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.emqx.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "652f1a793280a7af",
+        "type": "ui_group",
+        "name": "Messages",
+        "tab": "46962c7d9a4f65fc",
+        "order": 3,
+        "disp": true,
+        "width": 8,
+        "collapse": false
+    },
+    {
+        "id": "7fe6dd67680e9f21",
+        "type": "ui_tab",
+        "name": "Electric meter",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "46962c7d9a4f65fc",
+        "type": "ui_tab",
+        "name": "CPU status",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
