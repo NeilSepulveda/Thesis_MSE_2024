@@ -1,4 +1,5 @@
-# Tesis_MSE_2024
-Algoritmos utilizados para efectuar el trabajo "Medidor Inteligente de Energía Eléctrica Alterna para Sistemas Energéticos".
+# Thesis_MSE_2024
 
-Este trabajo fue realizado por el Ingeniero Civil Eléctrico Neil Sepúlveda Sepúlveda para optar al grado de Magíster en Sistemas Energéticos de la Universidad Católica de la Santisima Concepción, Chile.
+Algorithms used to carry out the work "Smart Meter of Alternating Electrical Energy for Energy Systems".
+
+This work was carried out by the Civil Electrical Engineer Neil Sepúlveda Sepúlveda in order to obtain a Master's degree in "Sistemas Energéticos" at the Universidad Católica de la Santísimas Concepción, Chile.
