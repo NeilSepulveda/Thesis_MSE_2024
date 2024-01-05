@@ -1,0 +1,3 @@
+The sensor delivers the average of the odd harmonics of the voltage from the 5th harmonic to the 9th harmonic.
+These harmonics are calculated because, as analysed in the measurements, they are the only ones that present high and constant values.
+Moreover, from the 8th harmonic onwards, only noises with values close to zero are present.
