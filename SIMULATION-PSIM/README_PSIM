@@ -1,0 +1,3 @@
+To corroborate the measurement methods, numerical experiments were carried out using PSIM software. 
+In the test, measurements were performed on a single-phase electrical system, simulating the use of an MCU as SEM. 
+In addition, the system fed a resistive, inductive and capacitive load.
