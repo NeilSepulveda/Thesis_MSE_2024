@@ -1,0 +1,1041 @@
+[
+    {
+        "id": "b18b5c4ff08848b9",
+        "type": "tab",
+        "label": "CPU status",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b629848208dc0cc7",
+        "type": "link in",
+        "z": "b18b5c4ff08848b9",
+        "name": "Data transfer",
+        "links": [
+            "3c76a6553fe545d0"
+        ],
+        "x": 625,
+        "y": 740,
+        "wires": [
+            [
+                "bd7ab96a0217707f"
+            ]
+        ]
+    },
+    {
+        "id": "a77f588b6a8d6f87",
+        "type": "cpu",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "msgCore": false,
+        "msgOverall": true,
+        "msgArray": false,
+        "msgTemp": true,
+        "x": 370,
+        "y": 320,
+        "wires": [
+            [
+                "dd70235d964c174d"
+            ]
+        ]
+    },
+    {
+        "id": "dd70235d964c174d",
+        "type": "switch",
+        "z": "b18b5c4ff08848b9",
+        "name": "Switch CPU",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "overall",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "temperature",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 730,
+        "y": 320,
+        "wires": [
+            [
+                "f35cc4ad1321e47a",
+                "073183d4b18ac52b",
+                "e465daadf05fb904"
+            ],
+            [
+                "8117fa193518be2d",
+                "988a6bcc07e53aa3",
+                "800deb1777c81cc5"
+            ]
+        ]
+    },
+    {
+        "id": "073183d4b18ac52b",
+        "type": "ui_chart",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "dcfe3f40235ed533",
+        "order": 3,
+        "width": 8,
+        "height": 5,
+        "label": " CPU Usage [%]",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No Data Available",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#c80a0a",
+            "#960a0a",
+            "#640a0a",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1000,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8117fa193518be2d",
+        "type": "ui_chart",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "dcfe3f40235ed533",
+        "order": 4,
+        "width": 8,
+        "height": 5,
+        "label": "CPU temperature [°C]",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#c80a0a",
+            "#960a0a",
+            "#640a0a",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1020,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f35cc4ad1321e47a",
+        "type": "ui_gauge",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "dcfe3f40235ed533",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": " CPU Usage [%]",
+        "label": "[%]",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#640a0a",
+            "#960a0a",
+            "#c80a0a"
+        ],
+        "seg1": "15",
+        "seg2": "30",
+        "x": 1000,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "988a6bcc07e53aa3",
+        "type": "ui_gauge",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "dcfe3f40235ed533",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "CPU temperature [°C]",
+        "label": "[°C]",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#640a0a",
+            "#960a0a",
+            "#c80a0a"
+        ],
+        "seg1": "15",
+        "seg2": "30",
+        "x": 1020,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "9b1cc7220eb148c0",
+        "type": "exec",
+        "z": "b18b5c4ff08848b9",
+        "command": "free | grep Mem | awk '{printf \"%.2f\", ($2-$7)*100/$2}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "RAM usage",
+        "x": 490,
+        "y": 500,
+        "wires": [
+            [
+                "2f05d2031843d1c8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f9094d70863ff7c7",
+        "type": "exec",
+        "z": "b18b5c4ff08848b9",
+        "command": "df -h / | awk '{print $5}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "Disk storage usage",
+        "x": 390,
+        "y": 620,
+        "wires": [
+            [
+                "6ee231f170f6e1ab"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "51a28329ac2c34fc",
+        "type": "ui_chart",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "e83133cc68b86470",
+        "order": 3,
+        "width": 8,
+        "height": 5,
+        "label": "RAM Usage [%]",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No Data Available",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#c80a0a",
+            "#960a0a",
+            "#640a0a",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1000,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d423aab585f3f12d",
+        "type": "ui_gauge",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "e83133cc68b86470",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "RAM Usage [%]",
+        "label": "[%]",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#640a0a",
+            "#960a0a",
+            "#c80a0a"
+        ],
+        "seg1": "15",
+        "seg2": "30",
+        "x": 1000,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "3cd3668310e6bcd2",
+        "type": "ui_chart",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "e83133cc68b86470",
+        "order": 4,
+        "width": 8,
+        "height": 5,
+        "label": "Disk Usage [%]",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No Data Available",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#c80a0a",
+            "#960a0a",
+            "#640a0a",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1000,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b3f6072bfe6953b",
+        "type": "ui_gauge",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "e83133cc68b86470",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Disk Usage [%]",
+        "label": "[%]",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#640a0a",
+            "#960a0a",
+            "#c80a0a"
+        ],
+        "seg1": "15",
+        "seg2": "30",
+        "x": 1000,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "bd7ab96a0217707f",
+        "type": "msg-speed",
+        "z": "b18b5c4ff08848b9",
+        "name": "Message speed",
+        "frequency": "min",
+        "interval": "1",
+        "estimation": false,
+        "ignore": false,
+        "pauseAtStartup": false,
+        "topicDependent": false,
+        "x": 760,
+        "y": 740,
+        "wires": [
+            [
+                "3c6bdc9fffeec0d2",
+                "97c01dd7a5b39f11",
+                "4ec692766e8cf2e9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3c6bdc9fffeec0d2",
+        "type": "ui_chart",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "652f1a793280a7af",
+        "order": 1,
+        "width": 8,
+        "height": 5,
+        "label": "Message speed [msg/m]",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No Data Available",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "65",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#c80a0a",
+            "#960a0a",
+            "#640a0a",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1030,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b486bf7e5f8554ea",
+        "type": "ui_button",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "afa10c6c3f1ed913",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reboot",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "replay",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "71e07f93bbecc289"
+            ]
+        ]
+    },
+    {
+        "id": "71e07f93bbecc289",
+        "type": "exec",
+        "z": "b18b5c4ff08848b9",
+        "command": "sudo reboot",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "Sudo reboot",
+        "x": 530,
+        "y": 100,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1e1e247c164d4095",
+        "type": "ui_button",
+        "z": "b18b5c4ff08848b9",
+        "name": "",
+        "group": "afa10c6c3f1ed913",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Shutdown",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "power_settings_new",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "41c883aec320f687"
+            ]
+        ]
+    },
+    {
+        "id": "41c883aec320f687",
+        "type": "exec",
+        "z": "b18b5c4ff08848b9",
+        "command": "sudo shutdown 0",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "Sudo shutdown -h now",
+        "x": 560,
+        "y": 160,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "97c01dd7a5b39f11",
+        "type": "ui_text",
+        "z": "b18b5c4ff08848b9",
+        "group": "652f1a793280a7af",
+        "order": 2,
+        "width": 8,
+        "height": 2,
+        "name": "",
+        "label": "Message speed [msg/minutes]:",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1050,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "1ad83f0c2d9be296",
+        "type": "ui_text",
+        "z": "b18b5c4ff08848b9",
+        "group": "afa10c6c3f1ed913",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": " Observation: use actions with caution.",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 450,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0b5369b42b0ef084",
+        "type": "inject",
+        "z": "b18b5c4ff08848b9",
+        "name": "Loop CPU",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 170,
+        "y": 500,
+        "wires": [
+            [
+                "a77f588b6a8d6f87",
+                "9b1cc7220eb148c0",
+                "f9094d70863ff7c7"
+            ]
+        ]
+    },
+    {
+        "id": "6ee231f170f6e1ab",
+        "type": "string",
+        "z": "b18b5c4ff08848b9",
+        "name": "Disk date",
+        "methods": [
+            {
+                "name": "between",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "\\n"
+                    },
+                    {
+                        "type": "str",
+                        "value": "%"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 580,
+        "y": 620,
+        "wires": [
+            [
+                "162e34f32b572bfc"
+            ]
+        ]
+    },
+    {
+        "id": "162e34f32b572bfc",
+        "type": "function",
+        "z": "b18b5c4ff08848b9",
+        "name": "String to Number",
+        "func": "//Saving value\nconst dato = msg.payload;\n\n//Development\n msg.payload = Number(dato);\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 620,
+        "wires": [
+            [
+                "0b3f6072bfe6953b",
+                "3cd3668310e6bcd2",
+                "f9add883f42aa32a"
+            ]
+        ]
+    },
+    {
+        "id": "2f05d2031843d1c8",
+        "type": "function",
+        "z": "b18b5c4ff08848b9",
+        "name": "String to Number",
+        "func": "//Saving value\nconst dato = msg.payload;\n\n//Development\n msg.payload = Number(dato);\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 500,
+        "wires": [
+            [
+                "d423aab585f3f12d",
+                "51a28329ac2c34fc",
+                "d4e82a3375500893"
+            ]
+        ]
+    },
+    {
+        "id": "2ab2332937e7123b",
+        "type": "function",
+        "z": "b18b5c4ff08848b9",
+        "name": "SQL: CPU use",
+        "func": "//Saving value\nconst inp = msg.payload;\n\n//Development\nmsg.topic = \"INSERT INTO CPU_use(CPU_use) VALUES ('\" +inp+ \"')\";\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 220,
+        "wires": [
+            [
+                "9191031defbaf983"
+            ]
+        ]
+    },
+    {
+        "id": "e465daadf05fb904",
+        "type": "delay",
+        "z": "b18b5c4ff08848b9",
+        "name": "Delay",
+        "pauseType": "rate",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 220,
+        "wires": [
+            [
+                "2ab2332937e7123b"
+            ]
+        ]
+    },
+    {
+        "id": "cacb07ce15dcf0e5",
+        "type": "function",
+        "z": "b18b5c4ff08848b9",
+        "name": "SQL: CPU temperature",
+        "func": "//Saving value\nconst inp = msg.payload;\n\n//Development\nmsg.topic = \"INSERT INTO CPU_temperature(CPU_temperature) VALUES ('\" +inp+ \"')\";\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 340,
+        "wires": [
+            [
+                "8193efeda19133af"
+            ]
+        ]
+    },
+    {
+        "id": "979c73ba21531c03",
+        "type": "function",
+        "z": "b18b5c4ff08848b9",
+        "name": "SQL: RAM use",
+        "func": "//Saving value\nconst inp = msg.payload;\n\n//Development\nmsg.topic = \"INSERT INTO RAM_use(RAM_use) VALUES ('\" +inp+ \"')\";\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 460,
+        "wires": [
+            [
+                "1f495eb05cdb0dee"
+            ]
+        ]
+    },
+    {
+        "id": "f1deb9322c430135",
+        "type": "function",
+        "z": "b18b5c4ff08848b9",
+        "name": "SQL: Disk use",
+        "func": "//Saving value\nconst inp = msg.payload;\n\n//Development\nmsg.topic = \"INSERT INTO Disk_use(Disk_use) VALUES ('\" +inp+ \"')\";\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 580,
+        "wires": [
+            [
+                "da4406b25e2c18ec"
+            ]
+        ]
+    },
+    {
+        "id": "36d0051932121efb",
+        "type": "function",
+        "z": "b18b5c4ff08848b9",
+        "name": "SQL: Message speed",
+        "func": "//Saving value\nconst inp = msg.payload;\n\n//Development\nmsg.topic = \"INSERT INTO Message_speed(Message_speed) VALUES ('\" +inp+ \"')\";\n\n//Sending data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 700,
+        "wires": [
+            [
+                "4968eb2a8037ad81"
+            ]
+        ]
+    },
+    {
+        "id": "8193efeda19133af",
+        "type": "mysql",
+        "z": "b18b5c4ff08848b9",
+        "d": true,
+        "mydb": "e3629ac52270aa6f",
+        "name": "SQL: Electric_Meter",
+        "x": 1420,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9191031defbaf983",
+        "type": "mysql",
+        "z": "b18b5c4ff08848b9",
+        "d": true,
+        "mydb": "e3629ac52270aa6f",
+        "name": "SQL: Electric_Meter",
+        "x": 1420,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1f495eb05cdb0dee",
+        "type": "mysql",
+        "z": "b18b5c4ff08848b9",
+        "d": true,
+        "mydb": "e3629ac52270aa6f",
+        "name": "SQL: Electric_Meter",
+        "x": 1420,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da4406b25e2c18ec",
+        "type": "mysql",
+        "z": "b18b5c4ff08848b9",
+        "d": true,
+        "mydb": "e3629ac52270aa6f",
+        "name": "SQL: Electric_Meter",
+        "x": 1420,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4968eb2a8037ad81",
+        "type": "mysql",
+        "z": "b18b5c4ff08848b9",
+        "d": true,
+        "mydb": "e3629ac52270aa6f",
+        "name": "SQL: Electric_Meter",
+        "x": 1420,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "800deb1777c81cc5",
+        "type": "delay",
+        "z": "b18b5c4ff08848b9",
+        "name": "Delay",
+        "pauseType": "rate",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 340,
+        "wires": [
+            [
+                "cacb07ce15dcf0e5"
+            ]
+        ]
+    },
+    {
+        "id": "d4e82a3375500893",
+        "type": "delay",
+        "z": "b18b5c4ff08848b9",
+        "name": "Delay",
+        "pauseType": "rate",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 460,
+        "wires": [
+            [
+                "979c73ba21531c03"
+            ]
+        ]
+    },
+    {
+        "id": "f9add883f42aa32a",
+        "type": "delay",
+        "z": "b18b5c4ff08848b9",
+        "name": "Delay",
+        "pauseType": "rate",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 580,
+        "wires": [
+            [
+                "f1deb9322c430135"
+            ]
+        ]
+    },
+    {
+        "id": "4ec692766e8cf2e9",
+        "type": "delay",
+        "z": "b18b5c4ff08848b9",
+        "name": "Delay",
+        "pauseType": "rate",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 700,
+        "wires": [
+            [
+                "36d0051932121efb"
+            ]
+        ]
+    },
+    {
+        "id": "dcfe3f40235ed533",
+        "type": "ui_group",
+        "name": "CPU",
+        "tab": "46962c7d9a4f65fc",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false
+    },
+    {
+        "id": "e83133cc68b86470",
+        "type": "ui_group",
+        "name": "RAM & Disk",
+        "tab": "46962c7d9a4f65fc",
+        "order": 2,
+        "disp": true,
+        "width": 8,
+        "collapse": false
+    },
+    {
+        "id": "652f1a793280a7af",
+        "type": "ui_group",
+        "name": "Messages",
+        "tab": "46962c7d9a4f65fc",
+        "order": 3,
+        "disp": true,
+        "width": 8,
+        "collapse": false
+    },
+    {
+        "id": "afa10c6c3f1ed913",
+        "type": "ui_group",
+        "name": " System actions",
+        "tab": "cfde41a0ec81362f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e3629ac52270aa6f",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "Electric_Meter",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "46962c7d9a4f65fc",
+        "type": "ui_tab",
+        "name": "CPU status",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cfde41a0ec81362f",
+        "type": "ui_tab",
+        "name": "Exit",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
