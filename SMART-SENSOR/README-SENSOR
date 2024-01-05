@@ -1,0 +1,3 @@
+The goal of smart sensors, created by means of machine learning models, 
+is to predict some variables that could not be calculated in the electrical power sensor, 
+either because of the lack of memory in the MCU or because of the need to use lower sampling times.
